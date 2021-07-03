@@ -29,9 +29,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef WEPOLL_EXPORT
-#define WEPOLL_EXPORT
-#endif
+#define WEPOLL_EXPORT __declspec(dllexport)
 
 #include <stdint.h>
 
@@ -324,6 +322,14 @@ static UNICODE_STRING afd__device_name =
 
 static OBJECT_ATTRIBUTES afd__device_attributes =
     RTL_CONSTANT_OBJECT_ATTRIBUTES(&afd__device_name, 0);
+
+BOOL APIENTRY DllMain(HMODULE hModule,
+    DWORD  ul_reason_for_call,
+    LPVOID lpReserved
+)
+{
+    return TRUE;
+}
 
 int afd_create_device_handle(HANDLE iocp_handle,
                              HANDLE* afd_device_handle_out) {

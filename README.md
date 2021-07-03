@@ -1,3 +1,6 @@
+This is a fork of wepoll that builds as a DLL. This is useful when using this from
+managed languages like C# or Java.
+
 # wepoll - epoll for windows
 
 [![][ci status badge]][ci status link]
