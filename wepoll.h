@@ -82,10 +82,12 @@ typedef union epoll_data {
   HANDLE hnd;  /* Windows specific */
 } epoll_data_t;
 
+#pragma pack(push, 1)
 struct epoll_event {
   uint32_t events;   /* Epoll events and flags */
   epoll_data_t data; /* User data variable */
 };
+#pragma pack(pop)
 
 #ifdef __cplusplus
 extern "C" {
